@@ -10,4 +10,9 @@ import { CommonModule } from '@angular/common';
 })
 export class ListComponent {
   public heroNames: string[] =['Spiderman', 'Ironman', 'Hulk', 'Thor'];
+  public deletedHero?: string = '';
+
+  removeLastHero(): void{
+    this.deletedHero = this.heroNames.pop();
+  }
 }

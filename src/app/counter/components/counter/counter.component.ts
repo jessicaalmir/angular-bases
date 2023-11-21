@@ -14,7 +14,7 @@ import { Component } from "@angular/core";
         <button (click)="reset()">Reset</button>
 
         `,
-    standalone: true
+    standalone: false
 })
 
 export class CounterComponent{

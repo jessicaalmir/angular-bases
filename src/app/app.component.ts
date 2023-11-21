@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { CounterComponent } from "./counter/counter.component";
-import { HeroComponent } from './heroes/hero/hero.component';
-import { ListComponent } from './heroes/list/list.component';
+import { CounterModel } from './counter/components/counter.module';
+import { HeroModule } from './heroes/hero.module';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, CounterComponent, HeroComponent,ListComponent]
+    imports: [CommonModule, RouterOutlet, CounterModel, HeroModule]
 })
 export class AppComponent {
   public title: string = 'Angular App';
