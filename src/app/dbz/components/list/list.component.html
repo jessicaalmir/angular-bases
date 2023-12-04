@@ -1,0 +1,21 @@
+<h4>List</h4>
+<ul class="list-group">
+    <li *ngFor="let character of characterList; 
+        let i = index; 
+        let isFirst = first;
+        let isLast = last;
+        let isEven = even;
+        let isOdd = odd;
+        " 
+        class="list-group-item"
+        [ngClass]="{
+            'list-group-item-success': isLast,
+            'list-group-item list-group-item-success': isOdd
+            }">
+        <span class="text-primary">{{ i + 1 }}</span>
+        {{character.name}} - 
+        <strong>Power: </strong> 
+        {{character.power}}
+
+    </li>
+</ul>
