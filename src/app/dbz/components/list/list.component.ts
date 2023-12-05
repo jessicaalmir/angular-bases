@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Character } from '../../interfaces/character.interface';
 
 @Component({
@@ -6,16 +6,33 @@ import { Character } from '../../interfaces/character.interface';
   standalone: false,
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ListComponent { 
 
-  @Input()
+  @Output()
+  public onDeleteCharacterEmitter: EventEmitter<number> = new EventEmitter();
+
+  @Output()
+  public onDeleteByIdEmmitter: EventEmitter<string> = new EventEmitter();
+
+  @Input('characterList')
   public characterList: Character[] = [
     {
-      name:'Trunk', 
-      power: 300
-    }
+      name:'Truks', 
+      power: 10
+    },
   ];
 
+
+  
+  onDeleteCharacter(index:number): void{
+    this.onDeleteCharacterEmitter.emit(index);
+  }
+
+  onDeleteCharacterById(id?: string): void{
+    if(id)
+      this.onDeleteByIdEmmitter.emit(id);
+  }
+  
 }

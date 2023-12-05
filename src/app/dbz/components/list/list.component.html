@@ -7,15 +7,17 @@
         let isEven = even;
         let isOdd = odd;
         " 
-        class="list-group-item"
+        class="list-group-item d-flex justify-content-between"
         [ngClass]="{
-            'list-group-item-success': isLast,
-            'list-group-item list-group-item-success': isOdd
+            'list-group-item-dark': isOdd,
+            'list-group-item-light': isEven
             }">
-        <span class="text-primary">{{ i + 1 }}</span>
-        {{character.name}} - 
-        <strong>Power: </strong> 
-        {{character.power}}
-
+            <div>
+                <span class="text-primary">{{ i + 1 }}</span>
+                {{character.name}} - 
+                <strong>Power: </strong> 
+                {{character.power}}
+            </div>
+            <button class="btn btn-danger" (click)="onDeleteCharacterById(character.id)">X</button>
     </li>
 </ul>
